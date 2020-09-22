@@ -1,21 +1,32 @@
 package App;  
 import java.util.ArrayList;
 import java.util.List;
-import java.util.*; 
+import java.util.Scanner; 
 
 public class Animal {
-    public String zebra; 
-    public String lion; 
-    public String dog; 
+    public List<String> regiAnimal = new ArrayList<>(); 
 
-    public String getAnimals() {
-        return this.zebra + "\n " + this.lion + "\n " + this.dog;
+    public List<String>  setAnimalName(){
+        System.out.println("What animal do you want to registrer?\nWhen you are done write exit.");
+        Scanner sc = new Scanner(System.in);
+
+        while(sc.hasNext()) {
+            String s1 = sc.next();
+            if(s1.equals("exit")) {
+                break;
+            }
+            regiAnimal.add(s1); 
+        }
+        return regiAnimal; 
+    }
+    public List<String> getAnimals() {
+        return regiAnimal;
     }
     public int getNumoffAnimals() {
-        List<String> numOffAnimals = new ArrayList<>(); 
-        numOffAnimals.add(this.zebra); 
-        numOffAnimals.add(this.lion); 
-        numOffAnimals.add(this.dog); 
-        return numOffAnimals.size();
+        return getAnimals().size();
     }
 }
+
+class Animal_info extends Animal{
+
+} 
